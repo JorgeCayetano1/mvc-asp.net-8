@@ -94,6 +94,10 @@ function saveClient(clientId) {
         phone: $('#clientPhone').val()
     };
 
+    const validateClient = Object.values(client).every(val => val !== "");
+
+    if (!validateClient) return alert("Datos requeridos!");
+
     // Lógica para guardar el cliente
     console.log('Cliente guardado:', client);
 
@@ -152,7 +156,6 @@ function showModal(title, content, onSaveCallback) {
 
     modal.style.display = 'block';
     modal.removeAttribute('inert');
-    modal.setAttribute('aria-hidden', 'false');
     $('#reusableModal').modal('show');
 }
 
@@ -160,7 +163,6 @@ function closeModal() {
     const modal = document.getElementById('reusableModal');
     modal.style.display = 'none';
     modal.setAttribute('inert', '');
-    modal.setAttribute('aria-hidden', 'true');
     $('#reusableModal').modal('hide');
 }
 
