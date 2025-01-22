@@ -1,0 +1,81 @@
+[
+  {
+    "ContainingType": "MVC.ClientApp.Controllers.ApiClientController",
+    "Method": "GetAll",
+    "RelativePath": "api/ApiClient",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MVC.ClientApp.Controllers.ApiClientController",
+    "Method": "CreateClient",
+    "RelativePath": "api/ApiClient",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "client",
+        "Type": "MVC.ClientApp.Models.Client",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MVC.ClientApp.Controllers.ApiClientController",
+    "Method": "Get",
+    "RelativePath": "api/ApiClient/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MVC.ClientApp.Controllers.ApiClientController",
+    "Method": "UpdateClient",
+    "RelativePath": "api/ApiClient/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "client",
+        "Type": "MVC.ClientApp.Models.Client",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MVC.ClientApp.Controllers.ApiClientController",
+    "Method": "DeleteClient",
+    "RelativePath": "api/ApiClient/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

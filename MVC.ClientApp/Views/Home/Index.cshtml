@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">App Client</h1>
+    <button class="btn btn-primary" onclick="showCreateModal()">Crear Cliente</button>
+    @* <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> *@
+
+    <div>
+        <table class="clientTable">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="clientTableBody">
+                @* data is here *@
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@* Incluir el modal reutilizable *@
+<partial name="Components/Modal" />
+
+@* @section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $.ajax({
+                url: 'api/ApiClient',
+                type: 'GET',
+                success: function ({ data }) {
+                    var tableBody = $('#clientTableBody');
+                    tableBody.empty();
+                    if (data.length === 0) {
+                        var noDataRow = '<tr><td colspan="4" class="text-center">No hay datos disponibles</td></tr>';
+                        tableBody.append(noDataRow);
+                    }
+                    $.each(data, function(index, client) {
+                        var row = '<tr>' +
+                            '<th scope="row">' + client.id + '</th>' +
+                            '<td>' + client.name + '</td>' +
+                            '<td>' + client.email + '</td>' +
+                            '<td>' + client.phone + '</td>' +
+                            '</tr>';
+                        tableBody.append(row);
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error al obtener los datos:', error);
+                }
+            });
+        });
+
+        function showCreateModal() {
+            var content = `
+                <form id="clientForm">
+                    <div class="form-group">
+                        <label for="clientName">Nombre</label>
+                        <input type="text" class="form-control" id="clientName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="clientEmail">Email</label>
+                        <input type="email" class="form-control" id="clientEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="clientPhone">Phone</label>
+                        <input type="text" class="form-control" id="clientPhone" required>
+                    </div>
+                </form>
+            `;
+            showModal('Crear Cliente', content, saveClient);
+        }
+
+        function saveClient() {
+            var client = {
+                name: $('#clientName').val(),
+                email: $('#clientEmail').val(),
+                phone: $('#clientPhone').val()
+            };
+
+            // Lógica para guardar el cliente
+            console.log('Cliente guardado:', client);
+        }
+    </script>
+} *@
